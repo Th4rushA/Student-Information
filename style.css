@@ -1,0 +1,1001 @@
+/*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    Remove list styles (bullets/numbers)
+    in case you use it with normalize.css
+  */
+ol,
+ul {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* Your CSS Reset and other styles */
+
+/* Your CSS Reset and other styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.back-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+nav {
+    margin-top: -13%;
+    display: flex;
+    justify-content: center;
+
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links {
+    font-size: 3vw;
+    border: 0.35rem solid;
+    backdrop-filter: blur(20px);
+    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+
+.nav-links:nth-child(1) {
+    border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+    animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
+}
+
+@keyframes borderRadial {
+    20% {
+        --gradX: 100%;
+        --gradY: 50%;
+    }
+
+    40% {
+        --gradX: 100%;
+        --gradY: 100%;
+    }
+
+    60% {
+        --gradX: 50%;
+        --gradY: 100%;
+    }
+
+    80% {
+        --gradX: 0%;
+        --gradY: 50%;
+    }
+
+    100% {
+        --gradX: 50%;
+        --gradY: 0%;
+    }
+}
+
+.nav-links ul {
+    cursor: pointer;
+    margin-top: -3%;
+    padding: 0;
+}
+
+.nav-links ul li {
+    list-style: none;
+    padding: 0.5vw 2vw;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-links ul li a::after {
+    content: '';
+    margin-top: -0.5rem;
+    width: 0;
+    height: 5%;
+    background-color: #373737;
+    display: block;
+    transition: .5s;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+}
+
+.wrapper {
+    min-width: min(40rem, 100%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+}
+
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+}
+
+@property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+}
+
+:root {
+    --d: 2500ms;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: rgba(168, 239, 255, 1);
+    --c2: rgba(168, 239, 255, 0.1);
+}
+
+.head {
+    margin-top: 7%;
+    margin-left: 20%;
+    backdrop-filter: blur(30px);
+    width: 60%;
+    height: 65vh;
+    border-radius: 50px;
+}
+
+h1 {
+    padding-top: 7%;
+    padding-left: 5%;
+    font-family: "Days One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    color: #141627;
+}
+
+h3 {
+    padding-left: 5%;
+}
+
+img {
+    width: 27%;
+    margin-top: -25%;
+    margin-left: 68%;
+}
+
+.about {
+    font-weight: 600;
+    text-align: justify;
+    margin-top: 8%;
+    margin-left: 5%;
+}
+
+.paragraph span {
+    font-size: 13px;
+    display: block;
+    opacity: 0;
+    animation: reveal 0.9s forwards var(--d);
+}
+
+@keyframes reveal {
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.card-box {
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.card-box:hover {
+    transform: scale(0.95);
+}
+
+.head {
+    align-items: center;
+    overflow: hidden;
+    background: none;
+    background-color: none;
+    animation: bordure 2s cubic-bezier(0.08, 0.3, 0.41, 1.05) 0.65s forwards;
+    border: 5px solid #8E9394;
+    border-radius: 10px;
+    opacity: 0;
+    box-shadow: 0px 0px 50px 33px rgba(69, 89, 89, 0.012);
+}
+
+@keyframes bordure {
+    0% {
+        width: 0%;
+        height: 0px;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        height: 0px;
+        width: 60%;
+    }
+
+    100% {
+        width: 60%;
+        height: 65vh;
+        opacity: 1;
+    }
+}
+
+#section2 h1 {
+    margin-left: 5%;
+}
+
+#section2 h1 {
+    margin-left: 5%;
+}
+
+#section2 p {
+    margin-top: 2.5%;
+    padding: 20px 0;
+    padding-left: 5%;
+    margin-left: 5%;
+    backdrop-filter: blur(40px);
+    border-radius: 50px;
+    width: 90%;
+    font-weight: 500;
+}
+
+.projects {
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.projects:hover {
+    transform: scale(0.95);
+}
+
+.box {
+    margin-left: 0%;
+    margin-top: 4%;
+    margin-right: -5px;
+    width: 100%;
+    display: flex;
+    grid-gap: 15px;
+}
+
+.card {
+    margin-left: 4.25%;
+    position: relative;
+    width: 250px;
+    height: 200px;
+    background: black;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+}
+
+.card:before,
+.card:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: grey;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.card:hover:before {
+    transform: rotate(20deg);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+}
+
+.card:hover:after {
+    transform: rotate(10deg);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+}
+
+.card .imgBx {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    background: #222;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.card:hover .imgBx {
+    bottom: 80px;
+}
+
+.card .imgBx img {
+    margin-top: 0;
+    margin-left: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .details {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 60px;
+    text-align: center;
+}
+
+.card .details h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.card .details h2 span {
+    font-weight: 500;
+    font-size: 16px;
+    color: #f38695;
+    display: block;
+    margin-top: 5px;
+}
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: 15px;
+    font-family: inherit;
+    margin-top: -5%;
+    margin-left: 80%;
+}
+
+button.learn-more {
+    width: 12rem;
+    height: auto;
+}
+
+button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+#section3 {
+    height: 15vh;
+}
+
+/* This is an example, feel free to delete this code */
+.tooltip-container {
+    margin-top: 5%;
+    margin-left: 86%;
+    width: 3.5%;
+    backdrop-filter: blur(20px);
+    position: relative;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 0.7em 0.7em;
+    border-radius: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-container:hover {
+    backdrop-filter: blur(20px);
+    transition: all 0.6s;
+}
+
+.tooltip-container .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: black;
+    transition: all 0.2s;
+}
+
+.tooltip-container:hover .text {
+    fill: rgb(3, 169, 244);
+    transition: all 0.6s;
+}
+
+/* Inicio do tooltip twitter */
+.tooltip1 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #03a9f4;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip1 {
+    top: 150%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    border-radius: 50px;
+    transform: translate(-50%, -5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip1:hover {
+    background: #03a9f4;
+    fill: #fff;
+}
+
+/* Fim do tooltip twitter */
+
+/* Inicio do tooltip facebook */
+.tooltip2 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #0462df;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip2 {
+    top: -120%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(-50%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip2:hover {
+    background: #0462df;
+    fill: #fff;
+}
+
+/* Fim do tooltip facebook */
+
+/* Inicio do tooltip whatsApp */
+.tooltip3 {
+    position: absolute;
+    top: 100%;
+    left: 60%;
+    transform: translateX(80%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #1db954;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip3 {
+    top: 10%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(85%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip3:hover {
+    background: #1db954;
+    fill: #fff;
+}
+
+/* Fim do tooltip whatsApp */
+
+/* Inicio do tooltip Discord */
+.tooltip4 {
+    position: absolute;
+    top: 100%;
+    left: -190%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #8c9eff;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip4 {
+    top: 10%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip4:hover {
+    background: #8c9eff;
+    fill: #fff;
+}
+
+/* Fim do tooltip Discord */
+
+/* Inicio do tooltip pinterest */
+.tooltip5 {
+    position: absolute;
+    top: 100%;
+    left: -145%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #bd081c;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip5 {
+    top: -78%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip5:hover {
+    background: #bd081c;
+    fill: #fff;
+}
+
+/* Fim do tooltip pinterest */
+
+/* Inicio do tooltip dribbble */
+.tooltip6 {
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #ea4c89;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip6 {
+    top: -79%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip6:hover {
+    background: #ea4c89;
+    fill: #fff;
+}
+
+/* Fim do tooltip dribbble */
+
+/* Inicio do tooltip github */
+.tooltip7 {
+    position: absolute;
+    top: 100%;
+    left: 39%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #000;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip7 {
+    top: 104%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip7:hover {
+    background: #000;
+    fill: #fff;
+}
+
+/* Fim do tooltip github */
+
+/* Inicio do tooltip reddit */
+.tooltip8 {
+    position: absolute;
+    top: 100%;
+    left: -150%;
+    transform: translateX(70%);
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(20px);
+    fill: #ff4500;
+    padding: 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-container:hover .tooltip8 {
+    top: 101%;
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+    transform: translate(70%, -5px);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-container:hover .tooltip8:hover {
+    background: #ff4500;
+    fill: #fff;
+}
+
+/* Fim do tooltip reddit */
+
+/* Inicio do tooltip fixo */
+.tooltip9 {
+    position: absolute;
+    top: 0;
+    left: -115%;
+    opacity: 0;
+    visibility: hidden;
+    width: 150px;
+    height: 150px;
+    z-index: -1;
+}
+
+.tooltip-container:hover .tooltip9 {
+    top: -110%;
+    opacity: 1;
+    visibility: visible;
+    border-radius: 50%;
+    z-index: -1;
+}
+#section3 {
+    height: 25vh;
+}
+.buttons {
+    margin-top: 2.5%;
+    margin-left: 44%;
+    backdrop-filter: blur(80px);
+    color: black;
+    border: 6px solid black;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    font: 18px "Margarine", sans-serif;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    letter-spacing: 2px;
+}
+.buttons-parrot .parrot {
+    position: absolute;
+    width: 60px;
+    text-align: center;
+    animation: blink 0.8s infinite;
+    color: transparent;
+}
+.buttons-parrot .parrot:before {
+    font-weight: 800;
+    content: "hIRE Me!";
+  }
+  
+  .buttons-parrot .parrot:nth-child(1) {
+    top: -30px;
+    left: -40px;
+    font: 12px/1 "Margarine", sans-serif;
+    transform: rotate(-20deg);
+    animation-duration: 0.5s;
+  }
+  
+  .buttons-parrot .parrot:nth-child(2) {
+    font: 12px/1 "Margarine", sans-serif;
+    right: -40px;
+    top: -20px;
+    transform: rotate(15deg);
+    animation-duration: 0.3s;
+  }
+  
+  .buttons-parrot .parrot:nth-child(3) {
+    font: 16px/1 "Margarine", sans-serif;
+    top: -60px;
+    left: 15px;
+    transform: rotate(10deg);
+    animation-duration: 1s;
+  }
+  
+  .buttons-parrot .parrot:nth-child(4) {
+    font: 18px/1 "Margarine", sans-serif;
+    top: -70px;
+    left: 95px;
+    transform: rotate(2deg);
+    animation-duration: 0.7s;
+  }
+  
+  .buttons-parrot .parrot:nth-child(5) {
+    font: 14px/1 "Margarine", sans-serif;
+    top: 80px;
+    left: 105px;
+    transform: rotate(-20deg);
+    animation-duration: 0.8s;
+  }
+  
+  .buttons-parrot .parrot:nth-child(6) {
+    font: 12px/1 "Margarine", sans-serif;
+    top: 80px;
+    left: 5px;
+    transform: rotate(10deg);
+    animation-duration: 1.2s;
+  }
+  
+  .buttons-parrot .buttons:hover .parrot:before {
+    content: "Do it!";
+    width: 70px;
+  }
+  
+  @keyframes blink {
+    25%, 75% {
+      color: transparent;
+    }
+  
+    40%, 60% {
+      color: black;
+    }
+  }
+  
+  @media screen and (min-width: 1375px) {
+    .nav-links ul {
+        margin-top: -3.95%;
+    }
+
+    .about {
+        margin-top: 2%;
+    }
+
+    img {
+        width: 28%;
+        margin-top: -23%;
+        margin-left: 68%;
+    }
+
+    .paragraph span {
+        font-size: 18px;
+        display: block;
+        opacity: 0;
+        animation: reveal 0.9s forwards var(--d);
+    }
+
+    .about {
+        margin-top: 9%;
+    }
+
+    .projects {
+        font-size: 20px;
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    .box {
+        margin-left: 0%;
+        margin-top: 6%;
+        margin-right: -5px;
+        width: 100%;
+        display: flex;
+        grid-gap: 15px;
+    }
+    .card {
+        margin-left: 5%;
+        position: relative;
+        width: 350px;
+        height: 300px;
+        background: black;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    }
+    .tooltip-container {
+        margin-top: 4.5%;
+        margin-left: 86%;
+        width: 2.5%;     
+    }
+    .wrapper nav {
+        margin-top: -12%;
+    }
+    #section3 {
+        height: 20vh;
+    }
+    .buttons {
+        margin-top: 1.25%;
+        margin-left: 46.5%;
+    }
+}
